@@ -1,0 +1,23 @@
+doctype html
+
+html[lang="en"]
+  head
+    meta[http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"]
+    title
+      | CanRepresent
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = render 'shared/nav_main'
+
+    span.notice
+      = notice
+    span.alert
+      = alert
+
+    = yield
+
+    = render 'shared/footer'
