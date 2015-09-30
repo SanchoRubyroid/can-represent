@@ -7,14 +7,14 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo"><%= t(:logo) %></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#"><%= t(:login) %></a></li>
+      <li><%= link_to t(:login), new_user_session_path %></li>
       <li>
         <a class="dropdown-button" href="#!" data-activates="dropdown1">Language<i class="material-icons right">arrow_drop_down</i></a>
       </li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="#"><%= t(:login) %></a></li>
+      <li><a href="#"><%= link_to t(:login), new_user_session_path %></li>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>

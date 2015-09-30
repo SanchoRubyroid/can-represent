@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'materialize-sass'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'activerecord-session_store'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
