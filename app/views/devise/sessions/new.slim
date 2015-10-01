@@ -16,17 +16,17 @@
           label[for='user_password']
             = t(:password)
 
-      - if devise_mapping.rememberable?
-        .row
-          .input-field.col.s12
-            = f.check_box :remember_me
-            label[for='user_remember_me']
-              = t(:remember_me)
-      end
+      /- if devise_mapping.rememberable?
+      .row
+        .col.s4
+          = f.check_box :remember_me
+          label[for='user_remember_me']
+            = t(:remember_me)
 
-      button.btn.waves-effect.waves-light
-        = t(:login)
-        i.material-icons.right send
+        .col.s2.offset-s6
+          button.btn.waves-effect.waves-light
+            = t(:login)
+            i.material-icons.right send
 
     end
     br
