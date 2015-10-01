@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'welcome/:locale' => 'welcome#change_locale', as: 'change_locale'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -1,27 +1,31 @@
 .container
   .row
-    h4.header Log in
+    h4.header
+      = t(:login)
 
     = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'col s12') do |f|
       .row
         .input-field.col.s12
-          input.validate[type='email' name='user[email]']
-          = f.label :email
+          input.validate[type='text' name='user[login]']
+          label[for='user_login']
+            = "#{t(:username)} / #{t(:email)}"
 
       .row
         .input-field.col.s12
           input.validate[type='password' name='user[password]']
-          = f.label :password
+          label[for='user_password']
+            = t(:password)
 
       - if devise_mapping.rememberable?
         .row
           .input-field.col.s12
             = f.check_box :remember_me
-            = f.label :remember_me
+            label[for='user_remember_me']
+              = t(:remember_me)
       end
 
       button.btn.waves-effect.waves-light
-        | Log in
+        = t(:login)
         i.material-icons.right send
 
     end

@@ -7,9 +7,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    cookies[:locale] = current_user.locale if current_user && current_user.locale.present?
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy

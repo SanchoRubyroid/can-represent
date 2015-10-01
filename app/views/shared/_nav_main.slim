@@ -1,8 +1,8 @@
 ul#dropdown1.dropdown-content
-  li
-    a(href="#!") EN
-  li
-    a(href="#!") RU
+  - LocalLocales.each do |locale|
+    li
+      = link_to(locale.upcase, change_locale_path(locale))
+  end
 
 nav.white(role="navigation")
   .nav-wrapper.container

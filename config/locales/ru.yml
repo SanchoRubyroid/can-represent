@@ -1,3 +1,9 @@
 ru:
-  login: 'Вход'
   logo: 'Победи OBD'
+  login: 'Вход'
+  logout: 'Выход'
+  username: 'Имя пользователя'
+  email: 'Электронная почта'
+  password: 'Пароль'
+  remember_me: 'Запомнить меня'
+  forgot_your_password: 'Забыли пароль?'

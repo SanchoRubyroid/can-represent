@@ -13,11 +13,9 @@ html[lang="en"]
   body
     = render 'shared/nav_main'
 
-    span.notice
-      = notice
-    span.alert
-      = alert
-
     = yield
 
     = render 'shared/footer'
+
+    = hidden_field_tag(:flash_notice, notice)
+    = hidden_field_tag(:flash_alert, alert)

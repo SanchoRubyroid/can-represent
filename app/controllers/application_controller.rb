@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = current_user.try(:locale) || cookies[:locale] || LocalLocales.find(extract_locale_from_accept_language_header)
+  end
+
+  private
+
+  def store_locale
+    cookies[:locale] = params[:locale]
+    current_user.try(:update_column, :locale, cookies[:locale])
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
 end
