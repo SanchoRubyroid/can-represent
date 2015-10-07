@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require_tree .
 
 $(document).ready(function(){
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
     $.each(['notice', 'alert'], function(index, the_flash){
         contents = $('#flash_' + the_flash).val()
         if(contents.length > 0) Materialize.toast(contents, 3000)

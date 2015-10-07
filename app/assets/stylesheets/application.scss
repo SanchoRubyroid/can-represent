@@ -11,14 +11,14 @@
  * file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
-//@import "materialize/components/color";
-//$primary-color: color("lime", "lighten-5") !default;
+@import "materialize/components/color";
+$primary-color: color("brown", "base") !default;
+$secondary-color: color("brown", "lighten-2") !default;
 
 @import "materialize";
 
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset!important;
-}
+//input:-webkit-autofill {
+//  -webkit-box-shadow: 0 0 0px 1000px white inset!important;
+//}

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :initialize_for_layout
+
   before_action :set_locale
 
   def set_locale
@@ -18,5 +20,9 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def initialize_for_layout
+    # Override me
   end
 end
