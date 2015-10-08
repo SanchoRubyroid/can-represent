@@ -8,13 +8,13 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
-  user: app
+  username: app
   password: apppw
 
 development:
   <<: *default
   database: can_represent_development
-  user: root
+  username: root
   password: 1
 
 # Warning: The database defined as "test" will be erased and
