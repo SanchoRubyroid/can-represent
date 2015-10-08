@@ -8,6 +8,8 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
+  user: app
+  password: apppw
 
 development:
   <<: *default
@@ -25,5 +27,3 @@ test:
 production:
   <<: *default
   database: can_represent_production
-  user: app
-  password: apppw
