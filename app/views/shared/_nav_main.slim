@@ -2,21 +2,38 @@ ul#dropdown1.dropdown-content
   - LocalLocales.each do |locale|
     li
       = link_to(locale.upcase, change_locale_path(locale))
-  end
+
+- @menu_manager.each_container do |container|
+  = content_tag(:ul, id: "dd-#{container.lookup}", class:'dropdown-content')
+    - container.each_item do |menu_item|
+      li
+       = link_to(menu_item.name, menu_item.path)
 
 nav(role="navigation")
   .nav-wrapper.container
     = link_to t(:logo), root_path, class: 'logo-container brand-logo'
     ul.right.hide-on-med-and-down
+      - @menu_manager.each_container do |container|
+        li
+          = link_to(container.caption, container.path, :'data-activates' => "dd-#{container.lookup}", class: 'global-nav-dropdown-button')
       li
-        = (user_signed_in? ? link_to(t(:logout), destroy_user_session_path, method: :delete) : link_to(t(:login), new_user_session_path))
+        = loginout_link
       li
-        a.dropdown-button(href="#!" data-activates="dropdown1")
+        a.global-nav-dropdown-button(href="javascript:void(0)" data-activates="dropdown1")
           i.tiny.material-icons language
 
     ul#nav-mobile.side-nav
+      - @menu_manager.each_container do |container|
+        - container.each_item do |menu_item|
+          li
+            = link_to(menu_item.name, menu_item.path)
+
+        li.divider
       li
-        a(href="#")
-          = link_to t(:login), new_user_session_path
+        = loginout_link
+      li.divider
+      - LocalLocales.each do |locale|
+        li
+          = link_to(locale.upcase, change_locale_path(locale))
     a.button-collapse(href="#" data-activates="nav-mobile")
       i.material-icons menu
