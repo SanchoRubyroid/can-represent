@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  logo: 'OBD'
+  logo: 'OBD Online'
   login: 'Login'
   logout: 'Logout'
   username: 'Username'
