@@ -7,3 +7,7 @@ ru:
   password: 'Пароль'
   remember_me: 'Запомнить меня'
   forgot_your_password: 'Забыли пароль?'
+
+  menu:
+    admin: 'Администрирование'
+    console: 'Консоль'

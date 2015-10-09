@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
   def initialize_for_layout
     @menu_manager = GlobalMenu::Manager.new
 
-    @menu_manager.for_container('Admin', admin_home_path) do |admin_container|
-      admin_container << GlobalMenu::Item.new('Console', admin_console_path)
+    @menu_manager.for_container(t('menu.admin'), admin_home_path) do |admin_container|
+      admin_container << GlobalMenu::Item.new(t('menu.console'), admin_console_path)
     end if user_signed_in?
   end
 end

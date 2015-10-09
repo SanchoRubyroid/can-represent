@@ -28,3 +28,7 @@ en:
   password: 'Password'
   remember_me: 'Remember me'
   forgot_your_password: 'Forgot your password?'
+
+  menu:
+    admin: 'Admin'
+    console: 'Console'
