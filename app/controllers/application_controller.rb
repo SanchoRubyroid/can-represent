@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :initialize_for_layout
 
-  before_action :set_locale, :test_menus
+  before_action :set_locale
 
   def set_locale
     I18n.locale = current_user.try(:locale) || cookies[:locale] || LocalLocales.find(extract_locale_from_accept_language_header)
@@ -33,24 +33,9 @@ class ApplicationController < ActionController::Base
 
   def initialize_for_layout
     @menu_manager = GlobalMenu::Manager.new
-  end
 
-  def test_menus
-    @global_menus = {
-      menu_1:[
-        { caption: 'Cap11',
-          path: root_path },
-        { caption: 'Cap12',
-          path: root_path },
-        { caption: 'Cap13',
-          path: root_path }
-      ],
-      menu_2:[
-        { caption: 'Cap21',
-          path: root_path },
-        { caption: 'Cap22',
-          path: root_path }
-      ]
-    }
+    @menu_manager.for_container('Admin', admin_home_path) do |admin_container|
+      admin_container << GlobalMenu::Item.new('Console', admin_console_path)
+    end if user_signed_in?
   end
 end
